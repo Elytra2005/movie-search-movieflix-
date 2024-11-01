@@ -1,0 +1,19 @@
+{% extends "base.html" %} <!-- brings the blueprint html into this document-->
+
+{% block middle %} <!-- template block -->
+
+<section class="section-middle">
+    <div class="main-header">
+         <h1 class="header-design color-white">Search Movie</h1>
+    </div>
+    <div class="main-search">
+        <form action="/result" method="POST">
+            <fieldset>
+                <input type="search" placeholder="Search" name="search-field" />
+             </fieldset>
+         </form>
+    </div>
+</section>
+
+{% endblock %}
+

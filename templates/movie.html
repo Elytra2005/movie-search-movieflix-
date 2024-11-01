@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block results %}
+<div class="container">
+    <section class="main-result">
+
+        <div class="content-top">
+           <div class="inner-left"><img src="{{Poster}}" class="movie-image"/></div>
+           <div class="inner-right">
+               <div class="title color-white">
+                   <h1>{{movieData}}</h1>
+               </div>
+
+               <div class="inner-info">
+                   <div class="info">
+                    <p><b class="color-white small-bold-font">Genre</b><span class="genre color-light"> {{Genre}}</span></p>
+                   </div>
+                   <div class="info">
+                     <p><b class="color-white small-bold-font">Released</b><span class="released color-light"> {{Released}}</span></p>
+                   </div>
+                   <div class="info">
+                    <p><b class="color-white small-bold-font">Rated</b><span class="rated color-light"> {{Rated}}</span></p>
+                </div>
+                   <div class="info">
+                       <p><b class="color-white small-bold-font">IMDB Rating</b><span class="IMDB-rating color-light"> {{IMDB}}</span></p>
+                   </div>
+                   <div class="info">
+                       <p><b class="color-white small-bold-font">Director</b><span class="Director color-light"> {{Director}}</span></p>
+                   </div>
+                   <div class="info">
+                       <p><b class="color-white small-bold-font">Writer</b><span class="Writer color-light"> {{Writer}}</span></p>
+                   </div>
+                   <div class="info">
+                       <p><b class="color-white small-bold-font">Actors</b><span class="Actors color-light"> {{Actors}}t</span></p>
+                   </div>
+               </div>
+           </div>
+        </div>
+
+        <div class="content-bottom">
+           <div class="plot-title color-white"><h2>Plot</h1></div>
+           <div class="plot-description color-light">{{Plot}}</div>
+           <div class="inner-options">
+               <a class="button" href="https://www.imdb.com/title/{{imdbID}}">View IMDB</a>
+               <a class="button-grey" href="{{url_for('search')}}">Go Back To Search</a>
+           </div>
+        </div>
+        
+   </section>
+   </div>
+   
+
+{% endblock %}
