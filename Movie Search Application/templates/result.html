@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block results %} 
+
+<style>
+
+
+
+.middle-header {
+        padding: 30px;
+        text-align: center;
+    }
+
+    #show-results {
+        background-color: #1f1e2e;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .search-results {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .result-card {
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 15px;
+        width: 230px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #4a4963;
+    }
+
+    .result-card .image-holder img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        outline: 2px solid #fff;
+        border: 3px solid #111;
+    }
+
+    .dynamic-h4 {
+        margin: 15px 0 10px;
+        text-align: center;
+        color: white;
+    }
+
+    .button-holder {
+        margin-top: 10px;
+    }
+
+    .button-holder a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+
+ 
+</style>
+
+<section id="show-results">
+    <div class="middle-header">
+        <h1 class="header-design color-white text-center">Search results for {{searchName}}</h1>
+    </div>
+
+
+    <div class="middle-return">
+        <a href="/" class="text-center color-white no-underline button">Return Home</a>
+    </div>
+
+    <div class="search-results">
+            {% for movie in searchResults["Search"] %}
+                    <div class="result-card">
+                        <div class="image-holder">
+                            <img src="{{movie['Poster']}}" class="movie-image" />
+                        </div>
+                        <h4 class="dynamic-h4 color-white header-design">{{movie['Title']}}</h4>
+                        <div class="button-holder">
+                            <a href="{{ url_for('moveiResults', movie_title=movie['Title']) }}" class="text-center button">Movie Details</a>
+                        </div>
+                    </div>
+            {% if loop.index % 5 == 0 %}
+                </div><div class="search-row">
+            {% endif %}
+
+            {% endfor %}
+         
+
+         
+    </div>
+</section>
+
+{% endblock %}

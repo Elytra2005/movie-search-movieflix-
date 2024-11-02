@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename ='styles.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename ='movie.css')}}" />
+    <title>MovieFlix</title>
+</head>
+<body>
+    <section class="section-top">
+            <div class="logo">
+                <h1 class="color-white"><span class="color-blue">Movie</span>Flix</h1>
+            </div>
+    </section>
+       
+    {% block middle %} {% endblock %}
+
+    {% block bottom %} {% endblock %}
+    
+    {% block results %} {% endblock %}
+
+  
+
+    <script src="../static/app.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        // simple fix because my css was acting weird i gave these rows the 2 classes
+        let searchRow = document.querySelector(".search-row");
+
+        searchRow.classList.add("search-results")
+        searchRow.classList.remove("search-row");
+    </script>
+</body>
+</html>
